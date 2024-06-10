@@ -6,12 +6,11 @@ import UserCenter from "./pages/UserCenter";
 import PrivateUserRoute from "./components/routes/PrivateUserRoute";
 import PrivateAdminRoute from "./components/routes/PrivateAdminRoute";
 import Dashboard from "./pages/Dashboard";
-import Navbar from "./components/Navbar";
+
 
 const AppRoutes: React.FC = () => {
   return (
     <Router>
-      <Navbar />
       <Routes>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />

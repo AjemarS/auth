@@ -3,8 +3,7 @@ import RegisterForm from "../components/forms/RegisterForm";
 
 const RegisterPage: React.FC = () => {
   return (
-    <div>
-      <h2>Register</h2>
+    <div className="page">
       <RegisterForm />
     </div>
   );

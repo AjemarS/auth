@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import authService from "./../services/authService";
+import Navbar from "../components/Navbar";
+import UserCard from "../components/UserCard";
 
 interface IUser {
   _id: string;
@@ -37,14 +39,12 @@ const Dashboard: React.FC = () => {
 
   return (
     <div>
-      <h1>All Users</h1>
-      <ul>
+      <Navbar />
+      <div className="page">
         {users.map((user) => (
-          <li key={user._id}>
-            {user.email} - {user.role}
-          </li>
+          <UserCard key={user._id} email={user.email} role={user.role} />
         ))}
-      </ul>
+      </div>
     </div>
   );
 };

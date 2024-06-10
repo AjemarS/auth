@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import authService from "./../services/authService";
+import Navbar from "../components/Navbar";
+import UserCard from "../components/UserCard";
 
 interface IUser {
   _id: string;
@@ -38,14 +40,8 @@ const UserCenter: React.FC = () => {
 
   return (
     <div>
-      <h1>User Profile</h1>
-      {user && (
-        <div>
-          <p>ID: {user._id}</p>
-          <p>Email: {user.email}</p>
-          <p>Role: {user.role}</p>
-        </div>
-      )}
+      <Navbar />
+      {user && <UserCard email={user.email} role={user.role} />}
     </div>
   );
 };

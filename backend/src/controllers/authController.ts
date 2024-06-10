@@ -22,6 +22,10 @@ export const registerUser = async (req: RegisterUserRequest, res: Response) => {
   try {
     const user = await authService.registerUser(email, password, role);
 
+    if (!user) {
+      res.status(401).json("Register failed, please try again");
+    }
+
     res.status(201).json({
       _id: String(user._id),
       email: user.email,
@@ -40,7 +44,7 @@ export const loginUser = async (req: LoginUserRequest, res: Response) => {
     const result = await authService.loginUser(email, password);
 
     if (!result || !result.user || !result.token) {
-      throw new Error("Login failed, please try again");
+      res.status(401).json("Login failed, please try again");
     }
 
     const { user, token } = result;
