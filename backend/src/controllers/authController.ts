@@ -72,7 +72,7 @@ export const getAllUsers = async (req: Request, res: Response) => {
 export const getUser = async (req: Request, res: Response) => {
   try {
     const user = await authService.getUser(req.body.user.email);
-    console.log(req);
+
     res.json(user);
   } catch (error: any) {
     res.status(500).json({ message: error.message });
